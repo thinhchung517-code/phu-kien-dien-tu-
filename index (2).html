@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechZone - Phụ kiện điện tử</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Helvetica,sans-serif;background:#f5f7fa;color:#222}
+    a{text-decoration:none;color:inherit}
+    .topbar{background:#111827;color:#dbeafe;text-align:center;padding:8px;font-size:13px}
+    header{background:#fff;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px #00000012}
+    .nav{max-width:1200px;margin:auto;height:72px;display:flex;align-items:center;gap:28px;padding:0 20px}
+    .logo{font-size:25px;font-weight:800;color:#e11d48;white-space:nowrap}
+    .logo span{color:#111827}
+    .search{flex:1;display:flex;border:1px solid #ddd;border-radius:10px;overflow:hidden}
+    .search input{flex:1;border:0;outline:0;padding:13px 16px;font-size:14px}
+    .search button{border:0;background:#e11d48;color:white;padding:0 20px;cursor:pointer}
+    .nav-icons{display:flex;gap:18px;font-size:14px;white-space:nowrap}
+    .nav-icons a:hover{color:#e11d48}
+    .menu{border-top:1px solid #eee}
+    .menu-inner{max-width:1200px;margin:auto;padding:12px 20px;display:flex;gap:28px;font-size:14px;font-weight:600}
+    .menu-inner a:hover{color:#e11d48}
+    .hero{max-width:1200px;margin:24px auto;padding:0 20px}
+    .hero-box{background:linear-gradient(120deg,#111827,#e11d48);border-radius:18px;min-height:310px;color:white;display:flex;align-items:center;overflow:hidden}
+    .hero-content{padding:42px;max-width:620px}
+    .hero-content small{color:#fecdd3;font-weight:bold}
+    .hero h1{font-size:42px;line-height:1.1;margin:12px 0}
+    .hero p{color:#e5e7eb;line-height:1.6;margin-bottom:24px}
+    .btn{display:inline-block;background:white;color:#111827;padding:13px 23px;border-radius:9px;font-weight:bold}
+    .btn:hover{background:#ffe4e6;color:#be123c}
+    .section{max-width:1200px;margin:30px auto;padding:0 20px}
+    .section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+    .section-head h2{font-size:24px}
+    .section-head a{color:#e11d48;font-size:14px}
+    .categories{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+    .cat{background:white;border-radius:12px;padding:22px 10px;text-align:center;box-shadow:0 2px 8px #00000008;transition:.2s}
+    .cat:hover{transform:translateY(-4px);box-shadow:0 8px 20px #00000012}
+    .cat .icon{font-size:32px;margin-bottom:10px}
+    .cat p{font-size:14px;font-weight:bold}
+    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .product{background:white;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px #0000000d;transition:.2s;position:relative}
+    .product:hover{transform:translateY(-4px);box-shadow:0 10px 25px #00000014}
+    .badge{position:absolute;top:10px;left:10px;background:#e11d48;color:#fff;border-radius:5px;padding:5px 8px;font-size:11px;font-weight:bold}
+    .product-img{height:210px;background:#eef2f7;display:flex;align-items:center;justify-content:center;font-size:75px}
+    .product-info{padding:15px}
+    .product-name{font-size:15px;font-weight:600;min-height:40px;line-height:1.4}
+    .price{color:#e11d48;font-size:18px;font-weight:800;margin-top:10px}
+    .old-price{color:#999;font-size:12px;text-decoration:line-through;margin-left:6px}
+    .rating{font-size:12px;color:#f59e0b;margin-top:7px}
+    .buy{display:block;background:#111827;color:white;text-align:center;padding:10px;border-radius:8px;margin-top:12px;font-size:13px;font-weight:bold}
+    .buy:hover{background:#e11d48}
+    .banner{background:white;border-radius:14px;padding:25px;display:flex;justify-content:space-between;align-items:center;border-left:5px solid #e11d48}
+    .banner h3{font-size:21px;margin-bottom:7px}
+    .banner p{color:#666;font-size:14px}
+    footer{background:#111827;color:#cbd5e1;margin-top:50px}
+    .footer-inner{max-width:1200px;margin:auto;padding:42px 20px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}
+    footer h3{color:white;margin-bottom:15px}
+    footer p,footer li{font-size:13px;line-height:1.8}
+    footer ul{list-style:none}
+    .copyright{border-top:1px solid #374151;text-align:center;padding:15px;font-size:12px}
+    @media(max-width:900px){
+      .categories{grid-template-columns:repeat(3,1fr)}
+      .products{grid-template-columns:repeat(2,1fr)}
+      .footer-inner{grid-template-columns:repeat(2,1fr)}
+      .nav-icons{display:none}
+    }
+    @media(max-width:600px){
+      .nav{gap:10px;height:auto;padding:15px}
+      .logo{font-size:20px}
+      .menu-inner{overflow:auto;white-space:nowrap}
+      .hero h1{font-size:30px}
+      .hero-content{padding:28px}
+      .categories{grid-template-columns:repeat(2,1fr)}
+      .products{grid-template-columns:1fr 1fr;gap:10px}
+      .product-img{height:150px;font-size:55px}
+      .footer-inner{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">🚚 Miễn phí vận chuyển cho đơn từ 500.000đ &nbsp; | &nbsp; 🔥 Sale phụ kiện công nghệ đến 50%</div>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="#">TECH<span>ZONE</span></a>
+    <div class="search">
+      <input id="searchInput" type="text" placeholder="Tìm kiếm sản phẩm, phụ kiện...">
+      <button onclick="searchProducts()">🔍 Tìm</button>
+    </div>
+    <div class="nav-icons">
+      <a href="#">👤 Tài khoản</a>
+      <a href="#">🛒 Giỏ hàng</a>
+    </div>
+  </div>
+  <div class="menu">
+    <div class="menu-inner">
+      <a href="#">Trang chủ</a>
+      <a href="#categories">Danh mục</a>
+      <a href="#products">Sản phẩm</a>
+      <a href="#">Khuyến mãi</a>
+      <a href="#">Tin công nghệ</a>
+      <a href="#contact">Liên hệ</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-box">
+    <div class="hero-content">
+      <small>TECHZONE STORE</small>
+      <h1>Phụ kiện công nghệ<br>cho cuộc sống hiện đại</h1>
+      <p>Khám phá chuột, bàn phím, tai nghe, sạc nhanh, cáp kết nối và nhiều phụ kiện điện tử chính hãng với mức giá hấp dẫn.</p>
+      <a class="btn" href="#products">Mua sắm ngay →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="categories">
+  <div class="section-head"><h2>Danh mục nổi bật</h2><a href="#">Xem tất cả →</a></div>
+  <div class="categories">
+    <a class="cat" href="#products"><div class="icon">⌨️</div><p>Bàn phím</p></a>
+    <a class="cat" href="#products"><div class="icon">🖱️</div><p>Chuột gaming</p></a>
+    <a class="cat" href="#products"><div class="icon">🎧</div><p>Tai nghe</p></a>
+    <a class="cat" href="#products"><div class="icon">🔌</div><p>Củ sạc</p></a>
+    <a class="cat" href="#products"><div class="icon">🔋</div><p>Pin & Sạc dự phòng</p></a>
+    <a class="cat" href="#products"><div class="icon">📱</div><p>Phụ kiện điện thoại</p></a>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <div class="section-head"><h2>Sản phẩm bán chạy</h2><a href="#">Xem tất cả →</a></div>
+  <div class="products">
+
+    <div class="product" data-name="Ban phim co gaming RGB">
+      <span class="badge">-20%</span>
+      <div class="product-img">⌨️</div>
+      <div class="product-info">
+        <div class="product-name">Bàn phím cơ Gaming RGB 75%</div>
+        <div class="price">799.000đ <span class="old-price">999.000đ</span></div>
+        <div class="rating">★★★★★ (128)</div>
+        <a class="buy" href="#" onclick="addCart(event,'Bàn phím cơ Gaming RGB')">Thêm vào giỏ</a>
+      </div>
+    </div>
+
+    <div class="product" data-name="Chuot gaming khong day">
+      <span class="badge">HOT</span>
+      <div class="product-img">🖱️</div>
+      <div class="product-info">
+        <div class="product-name">Chuột Gaming không dây 1000Hz</div>
+        <div class="price">599.000đ</div>
+        <div class="rating">★★★★★ (96)</div>
+        <a class="buy" href="#" onclick="addCart(event,'Chuột Gaming không dây')">Thêm vào giỏ</a>
+      </div>
+    </div>
+
+    <div class="product" data-name="Tai nghe Bluetooth">
+      <span class="badge">-15%</span>
+      <div class="product-img">🎧</div>
+      <div class="product-info">
+        <div class="product-name">Tai nghe Bluetooth chống ồn ANC</div>
+        <div class="price">1.090.000đ <span class="old-price">1.290.000đ</span></div>
+        <div class="rating">★★★★☆ (74)</div>
+        <a class="buy" href="#" onclick="addCart(event,'Tai nghe Bluetooth ANC')">Thêm vào giỏ</a>
+      </div>
+    </div>
+
+    <div class="product" data-name="Cu sac nhanh USB C">
+      <span class="badge">NEW</span>
+      <div class="product-img">🔌</div>
+      <div class="product-info">
+        <div class="product-name">Củ sạc nhanh USB-C 65W GaN</div>
+        <div class="price">549.000đ</div>
+        <div class="rating">★★★★★ (52)</div>
+        <a class="buy" href="#" onclick="addCart(event,'Củ sạc nhanh USB-C 65W')">Thêm vào giỏ</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="banner">
+    <div>
+      <h3>⚡ Deal công nghệ mỗi ngày</h3>
+      <p>Đăng ký nhận thông báo để không bỏ lỡ sản phẩm mới và chương trình giảm giá.</p>
+    </div>
+    <a class="btn" href="#" onclick="subscribe(event)">Đăng ký ngay</a>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <div>
+      <h3>TECHZONE</h3>
+      <p>Cửa hàng chuyên cung cấp phụ kiện điện tử, gaming gear và thiết bị công nghệ.</p>
+      <p>📍 TP. Hồ Chí Minh</p>
+      <p>☎ 0123 456 789</p>
+      <p>✉ support@techzone.vn</p>
+    </div>
+    <div>
+      <h3>Danh mục</h3>
+      <ul><li>Bàn phím</li><li>Chuột</li><li>Tai nghe</li><li>Sạc & Cáp</li></ul>
+    </div>
+    <div>
+      <h3>Hỗ trợ</h3>
+      <ul><li>Hướng dẫn mua hàng</li><li>Chính sách đổi trả</li><li>Chính sách bảo hành</li><li>Thanh toán</li></ul>
+    </div>
+    <div>
+      <h3>Kết nối</h3>
+      <ul><li>Facebook</li><li>TikTok</li><li>Instagram</li><li>Zalo</li></ul>
+    </div>
+  </div>
+  <div class="copyright">© 2026 TechZone. All rights reserved.</div>
+</footer>
+
+<script>
+  function addCart(e, name){
+    e.preventDefault();
+    alert("Đã thêm \"" + name + "\" vào giỏ hàng!");
+  }
+
+  function subscribe(e){
+    e.preventDefault();
+    const email = prompt("Nhập email của bạn:");
+    if(email) alert("Đăng ký thành công với email: " + email);
+  }
+
+  function searchProducts(){
+    const keyword = document.getElementById("searchInput").value.toLowerCase().trim();
+    const products = document.querySelectorAll(".product");
+    let found = false;
+
+    products.forEach(product => {
+      const name = product.dataset.name.toLowerCase();
+      const match = !keyword || name.includes(keyword);
+      product.style.display = match ? "block" : "none";
+      if(match && keyword) found = true;
+    });
+
+    if(keyword && !found) alert("Không tìm thấy sản phẩm phù hợp.");
+    document.getElementById("products").scrollIntoView({behavior:"smooth"});
+  }
+
+  document.getElementById("searchInput").addEventListener("keydown", function(e){
+    if(e.key === "Enter") searchProducts();
+  });
+</script>
+
+</body>
+</html>
